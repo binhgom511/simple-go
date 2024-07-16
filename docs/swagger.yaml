@@ -1,0 +1,142 @@
+basePath: /
+definitions:
+  middleware.Movie:
+    properties:
+      isbn:
+        type: string
+      price:
+        type: string
+      title:
+        type: string
+    type: object
+  middleware.Response:
+    properties:
+      id:
+        type: string
+      message:
+        type: string
+    type: object
+  models.Movie:
+    properties:
+      id:
+        type: string
+      isbn:
+        type: string
+      price:
+        type: string
+      title:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact: {}
+  description: A Tag services API in Go using mux router and Swagger documentation
+  title: Tag Service API
+  version: "1.0"
+paths:
+  /movies:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves a list of all movies from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/middleware.Movie'
+            type: array
+      summary: Get all movies
+      tags:
+      - movies
+    post:
+      consumes:
+      - application/json
+      description: Creates a new movie in the database
+      parameters:
+      - description: Movie object to be created
+        in: body
+        name: movie
+        required: true
+        schema:
+          $ref: '#/definitions/middleware.Movie'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/middleware.Response'
+      summary: Create a new movie
+      tags:
+      - movies
+  /movies/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Deletes a movie from the database by its ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/middleware.Response'
+      summary: Delete a movie by ID
+      tags:
+      - movies
+    get:
+      consumes:
+      - application/json
+      description: Retrieves a movie from the database by its ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Movie'
+      summary: Get a movie by ID
+      tags:
+      - movies
+    put:
+      consumes:
+      - application/json
+      description: Updates an existing movie in the database by its ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Updated movie object
+        in: body
+        name: movie
+        required: true
+        schema:
+          $ref: '#/definitions/middleware.Movie'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/middleware.Response'
+      summary: Update a movie by ID
+      tags:
+      - movies
+swagger: "2.0"
