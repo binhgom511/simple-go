@@ -1,6 +1,7 @@
 package router
 
 import (
+	"go-movies-crud/controller"
 	"go-movies-crud/middleware"
 
 	"github.com/gorilla/mux"
@@ -10,12 +11,15 @@ import (
 func Router() *mux.Router {
 	r := mux.NewRouter()
 
+	// Apply the TimeRequest middleware to all routes
+	r.Use(middleware.TimeRequest)
+
 	// API endpoints
-	r.HandleFunc("/movies", middleware.GetMovies).Methods("GET", "OPTIONS")
-	r.HandleFunc("/movies/{id}", middleware.GetMovie).Methods("GET", "OPTIONS")
-	r.HandleFunc("/movies", middleware.CreateMovies).Methods("POST", "OPTIONS")
-	r.HandleFunc("/movies/{id}", middleware.UpdateMovie).Methods("PUT", "OPTIONS")
-	r.HandleFunc("/movies/{id}", middleware.DeleteMovie).Methods("DELETE", "OPTIONS")
+	r.HandleFunc("/movies", controller.GetMovies).Methods("GET", "OPTIONS")
+	r.HandleFunc("/movies/{id}", controller.GetMovie).Methods("GET", "OPTIONS")
+	r.HandleFunc("/movies", controller.CreateMovies).Methods("POST", "OPTIONS")
+	r.HandleFunc("/movies/{id}", controller.UpdateMovie).Methods("PUT", "OPTIONS")
+	r.HandleFunc("/movies/{id}", controller.DeleteMovie).Methods("DELETE", "OPTIONS")
 
 	// Serve Swagger UI and Swagger JSON
 	r.PathPrefix("/swagger/").Handler(httpSwagger.Handler(
