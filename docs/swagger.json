@@ -28,7 +28,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/middleware.Movie"
+                                "$ref": "#/definitions/controller.Movie"
                             }
                         }
                     }
@@ -53,7 +53,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/middleware.Movie"
+                            "$ref": "#/definitions/controller.Movie"
                         }
                     }
                 ],
@@ -61,7 +61,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/middleware.Response"
+                            "$ref": "#/definitions/controller.Response"
                         }
                     }
                 }
@@ -124,7 +124,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/middleware.Movie"
+                            "$ref": "#/definitions/controller.Movie"
                         }
                     }
                 ],
@@ -132,7 +132,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/middleware.Response"
+                            "$ref": "#/definitions/controller.Response"
                         }
                     }
                 }
@@ -162,7 +162,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/middleware.Response"
+                            "$ref": "#/definitions/controller.Response"
                         }
                     }
                 }
@@ -170,7 +170,7 @@
         }
     },
     "definitions": {
-        "middleware.Movie": {
+        "controller.Movie": {
             "type": "object",
             "properties": {
                 "isbn": {
@@ -184,7 +184,7 @@
                 }
             }
         },
-        "middleware.Response": {
+        "controller.Response": {
             "type": "object",
             "properties": {
                 "id": {

@@ -22,9 +22,7 @@ func Router() *mux.Router {
 	r.HandleFunc("/movies/{id}", controller.DeleteMovie).Methods("DELETE", "OPTIONS")
 
 	// Serve Swagger UI and Swagger JSON
-	r.PathPrefix("/swagger/").Handler(httpSwagger.Handler(
-		httpSwagger.URL("/swagger/doc.json"), // Adjust this URL as per your setup
-	))
+	r.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
 	return r
 }

@@ -34,7 +34,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/middleware.Movie"
+                                "$ref": "#/definitions/controller.Movie"
                             }
                         }
                     }
@@ -59,7 +59,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/middleware.Movie"
+                            "$ref": "#/definitions/controller.Movie"
                         }
                     }
                 ],
@@ -67,7 +67,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/middleware.Response"
+                            "$ref": "#/definitions/controller.Response"
                         }
                     }
                 }
@@ -130,7 +130,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/middleware.Movie"
+                            "$ref": "#/definitions/controller.Movie"
                         }
                     }
                 ],
@@ -138,7 +138,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/middleware.Response"
+                            "$ref": "#/definitions/controller.Response"
                         }
                     }
                 }
@@ -168,7 +168,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/middleware.Response"
+                            "$ref": "#/definitions/controller.Response"
                         }
                     }
                 }
@@ -176,7 +176,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "middleware.Movie": {
+        "controller.Movie": {
             "type": "object",
             "properties": {
                 "isbn": {
@@ -190,7 +190,7 @@ const docTemplate = `{
                 }
             }
         },
-        "middleware.Response": {
+        "controller.Response": {
             "type": "object",
             "properties": {
                 "id": {

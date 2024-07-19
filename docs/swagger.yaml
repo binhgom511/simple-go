@@ -1,6 +1,6 @@
 basePath: /
 definitions:
-  middleware.Movie:
+  controller.Movie:
     properties:
       isbn:
         type: string
@@ -9,7 +9,7 @@ definitions:
       title:
         type: string
     type: object
-  middleware.Response:
+  controller.Response:
     properties:
       id:
         type: string
@@ -46,7 +46,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/middleware.Movie'
+              $ref: '#/definitions/controller.Movie'
             type: array
       summary: Get all movies
       tags:
@@ -61,14 +61,14 @@ paths:
         name: movie
         required: true
         schema:
-          $ref: '#/definitions/middleware.Movie'
+          $ref: '#/definitions/controller.Movie'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/middleware.Response'
+            $ref: '#/definitions/controller.Response'
       summary: Create a new movie
       tags:
       - movies
@@ -89,7 +89,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/middleware.Response'
+            $ref: '#/definitions/controller.Response'
       summary: Delete a movie by ID
       tags:
       - movies
@@ -128,14 +128,14 @@ paths:
         name: movie
         required: true
         schema:
-          $ref: '#/definitions/middleware.Movie'
+          $ref: '#/definitions/controller.Movie'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/middleware.Response'
+            $ref: '#/definitions/controller.Response'
       summary: Update a movie by ID
       tags:
       - movies
